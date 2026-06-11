@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>BYD - Página Inicial</title>
+</head>
+<body class="corpo">
+
+    <div id="tela-inicial">
+        <h1 class="nome-byd">BYD</h1>
+    </div>
+
+    <header>
+        <div>
+            <a class="logo-texto" href="#">BYD</a>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Sobre nós</a>
+            <a href="#">Localização</a>
+            <a href="#">Contato</a> 
+        </nav>  
+    </header>
+
+    <div id="site-principal" class="secao-carro">
+        <div id="div-seal" class="container-conteudo">
+            <h2>SEAL</h2>
+            <img class="byd-seal" src="assets/BYD.png" alt="BYD-SEAL">
+            <button class="btn-detalhes">Detalhes</button>
+        </div>
+    </div>
+
+    <div id="div-dolphin" class="secao-carro">
+        <div class="container-conteudo">
+            <h2>DOLPHIN</h2>
+            <img class="byd-dolphin" src="assets/dolphin-byd.png" alt="BYD-DOLPHIN">
+            <button class="btn-detalhes">Detalhes</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Fechar Intro Animada
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const intro = document.getElementById('tela-inicial');
+                intro.classList.add('hidden');
+            }, 3300);
+        });
+
+        // Configuração Inicial do GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Timeline / Efeitos para a primeira dobra (SEAL)
+        gsap.to("#div-seal h2", {
+            y: -250,          
+            opacity: 0,       
+            scale: 1.1,       
+            scrollTrigger: {
+                trigger: "#site-principal",
+                start: "top top",
+                end: "bottom center",
+                scrub: 1
+            }
+        });
+
+        gsap.to(".byd-seal", {
+            y: 120,           
+            opacity: 0,       
+            scrollTrigger: {
+                trigger: "#site-principal",
+                start: "top top",
+                end: "bottom center",
+                scrub: 1
+            }
+        });
+
+        gsap.to("#div-seal .btn-detalhes", {
+            y: 150,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: "#site-principal",
+                start: "top top",
+                end: "bottom center",
+                scrub: 1
+            }
+        });
+
+        gsap.to("#div-dolphin h2",{
+            y: -250,
+            opacity: 0,
+            scale: 1.1,
+            scrollTrigger: {
+                trigger: "#div-dolphin",
+                start: "top top",
+                end: "bottom center",
+                scrub: 1
+            }
+        });
+
+        gsap.to(".byd-dolphin",{
+            y: 120,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: "#div-dolphin",
+                start: "top top",
+                end: "bottom center",
+                scrub: 1
+            }
+        });
+
+        gsap.to("#div-dolphin .btn-detalhes" ,{
+            y: 150,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: "#div-dolphin",
+                start: "top top",
+                end: "bottom center",
+                scrub: 1
+            }
+        });
+        
+    </script>
+</body>
+</html>
