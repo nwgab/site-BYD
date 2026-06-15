@@ -155,10 +155,10 @@ header {
 /* Títulos Gigantes Estilizados por Trás dos Carros */
 .container-conteudo h2 {
     font-family: 'Notable', sans-serif;
-    font-size: 14vw;
+    font-size: 10vw;
     margin: 0;
     position: absolute;
-    top: -7%; /* Ajustado para encaixar harmonicamente atrás do teto */
+    top: -3%; /* Ajustado para encaixar harmonicamente atrás do teto */
     z-index: 1; /* Camada abaixo do carro */
     animation: reluzir 5s linear infinite;
     background: linear-gradient(120deg, #5c5c5c 30%, #ffffff 50%, #5c5c5c 70%);
@@ -167,6 +167,8 @@ header {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 2px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Botões Customizados */
@@ -192,5 +194,77 @@ header {
 }
 
 #div-dolphin .container-conteudo h2 {
-    top: 2%;
+    top: 3%;
+}
+
+.info-tecnicas{
+    position: absolute;
+    right: -50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    color: #fff;
+    font-family: "Share Tech", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 5;
+}
+
+.info-tecnicas h3{
+    font-family: 'Notable', sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.info-tecnicas .preco{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info-tecnicas ul{
+    list-style: none;
+    padding: 0;
+}
+
+.info-tecnicas ul li {
+    font-size: 18px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+.container-conteudo h2,
+.byd-seal,
+.byd-dolphin,
+.btn-detalhes{
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s;
+}
+
+#site-principal .container-conteudo.modo-detalhes h2 {
+    transform: translateX(-85%) !important;
+}
+
+#div-dolphin .container-conteudo.modo-detalhes h2 {
+    transform: translateX(-75%) !important;
+}
+
+.container-conteudo.modo-detalhes .byd-seal,
+.container-conteudo.modo-detalhes .byd-dolphin{
+    transform: translateX(-20%) scale(0.9);
+}
+
+.container-conteudo.modo-detalhes .info-tecnicas{
+    right: 10%;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.container-conteudo.modo-detalhes .btn-detalhes{
+    background-color: #ffffff;
+    color: #000;
 }
