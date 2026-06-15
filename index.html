@@ -25,17 +25,37 @@
 
     <div id="site-principal" class="secao-carro">
         <div id="div-seal" class="container-conteudo">
-            <h2>SEAL</h2>
+            <h2 class="h2-seal">SEAL</h2>
             <img class="byd-seal" src="assets/BYD.png" alt="BYD-SEAL">
             <button class="btn-detalhes">Detalhes</button>
+
+            <div class="info-tecnicas">
+                <h3>BYD SEAL</h3>
+                <p class="preco">A partir de R$ 296.800</p>
+                <ul>
+                    <li><strong>Autonomia:</strong> Até 372 km (Inmetro)</li>
+                    <li><strong>Potência:</strong> 531 CV</li>
+                    <li><strong>0 a 100 km/h:</strong> 3.8 segundos</li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <div id="div-dolphin" class="secao-carro">
         <div class="container-conteudo">
-            <h2>DOLPHIN</h2>
+            <h2 class="h2-dolphin">DOLPHIN</h2>
             <img class="byd-dolphin" src="assets/dolphin-byd.png" alt="BYD-DOLPHIN">
             <button class="btn-detalhes">Detalhes</button>
+
+            <div class="info-tecnicas">
+                <h3>BYD DOLPHIN</h3>
+                <p class="preco">A partir de R$ 149.800</p>
+                <ul>
+                    <li><strong>Autonomia:</strong> Até 291 km (Inmetro)</li>
+                    <li><strong>Potência:</strong> 95 CV</li>
+                    <li><strong>0 a 100 km/h:</strong> 10.9 segundos</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -122,6 +142,35 @@
                 scrub: 1
             }
         });
+
+        // Animação clicar no botão detalhes:
+        const botoesDetalhes = document.querySelectorAll('.btn-detalhes');
+
+        botoesDetalhes.forEach(botao => {
+        botao.addEventListener('click', (evento) => {
+        const container = evento.target.closest('.container-conteudo');
+        
+        // Descobre qual é o carro dessa seção específica
+        const carro = container.querySelector('.byd-seal, .byd-dolphin');
+        
+        // Alterna a classe no container
+        container.classList.toggle('modo-detalhes');
+        
+        if (container.classList.contains('modo-detalhes')) {
+            evento.target.innerText = "Fechar";
+            
+            // GSAP move o carro para a esquerda e diminui a escala suavemente
+            gsap.to(carro, { xPercent: -20, scale: 0.9, duration: 0.6, ease: "power2.out" });
+        } else {
+            evento.target.innerText = "Detalhes";
+            
+            // GSAP devolve o carro para a posição original no centro
+            gsap.to(carro, { xPercent: 0, scale: 1, duration: 0.6, ease: "power2.out" });
+        }
+    });
+});
+
+        
         
     </script>
 </body>
