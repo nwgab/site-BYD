@@ -1,2 +1,2 @@
 # site-BYD
-Projeto realizado no Senai que visa a criação de uma topologia de redes para a empresa BYD, dentro dessa topologia a necessidade de um site.
+Projeto realizado no Senai que visa a criação de uma topologia de redes para a empresa BYD, dentro dessa topologia a necessidade de um site. (Projeto feito com ideia original inspirada em sites de grandes marcas, com uso de IA para aprendizado e desenvolvimento do site. Essa versão é antes da final do projeto, pois devido a prazos precisei usar IA como fonte de copiar e colar para terminar o projeto)
