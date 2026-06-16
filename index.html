@@ -59,6 +59,25 @@
         </div>
     </div>
 
+    <div id="div-king" class="secao-carro">
+        <div class="container-conteudo">
+            <h2 class="h2-king">KING</h2>
+            <img class="byd-king" src="assets/byd-king.png" alt="BYD-KING">
+            <button class="btn-detalhes">Detalhes</button>
+
+            <div class="info-tecnicas">
+                <h3>BYD KING</h3>
+                <p class="preco">A partir de R$ 175.800</p>
+                <ul>
+                    <li><strong>Autonomia:</strong> Híbrido Plug-in</li>
+                    <li><strong>Potência:</strong> 235 CV</li>
+                    <li><strong>0 a 100 km/h:</strong> 7.3 segundos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -78,12 +97,12 @@
         gsap.to("#div-seal h2", {
             y: -250,          
             opacity: 0,       
-            scale: 1.1,       
+            scale: 0.5,       
             scrollTrigger: {
                 trigger: "#site-principal",
                 start: "top top",
                 end: "bottom center",
-                scrub: 1
+                scrub: 1,
             }
         });
 
@@ -98,7 +117,7 @@
             }
         });
 
-        gsap.to("#div-seal .btn-detalhes", {
+        gsap.to("#div-seal .btn-detalhes ", {
             y: 150,
             opacity: 0,
             scrollTrigger: {
@@ -112,12 +131,13 @@
         gsap.to("#div-dolphin h2",{
             y: -250,
             opacity: 0,
-            scale: 1.1,
+            scale: 0.5,
             scrollTrigger: {
                 trigger: "#div-dolphin",
                 start: "top top",
                 end: "bottom center",
-                scrub: 1
+                scrub: 1,
+
             }
         });
 
@@ -132,7 +152,7 @@
             }
         });
 
-        gsap.to("#div-dolphin .btn-detalhes" ,{
+        gsap.to("#div-dolphin .btn-detalhes"  ,{
             y: 150,
             opacity: 0,
             scrollTrigger: {
@@ -143,6 +163,24 @@
             }
         });
 
+        ScrollTrigger.create({
+            trigger: "body",
+            start: "top top",
+            end: "bottom bottom",
+            snap: {
+                snapTo: "labels",
+                snapTo: function(value) {
+                    let secoes = document.querySelectorAll('.secao-carro').length;
+                    let passo = 1 / (secoes -1);
+                    return Math.round(value / passo) * passo;
+                },
+                duration: { min: 0.4, max: 0.7 },
+                delay: 0.05,
+                ease: "power1.inOut"
+            }
+        })
+
+
         // Animação clicar no botão detalhes:
         const botoesDetalhes = document.querySelectorAll('.btn-detalhes');
 
@@ -151,7 +189,7 @@
         const container = evento.target.closest('.container-conteudo');
         
         // Descobre qual é o carro dessa seção específica
-        const carro = container.querySelector('.byd-seal, .byd-dolphin');
+        const carro = container.querySelector('.byd-seal, .byd-dolphin, .byd-king');
         
         // Alterna a classe no container
         container.classList.toggle('modo-detalhes');
@@ -170,7 +208,8 @@
     });
 });
 
-        
+    
+
         
     </script>
 </body>
